@@ -1,13 +1,13 @@
 <!--单文件组件-->
 <template>
-  <div>
-   hello world
+  <div id="app">
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'App'
 }
 </script>
 
