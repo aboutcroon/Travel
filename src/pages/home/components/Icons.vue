@@ -100,10 +100,11 @@ export default {
     height : 0
     padding-bottom : 50%
   .icons
-    overflow : hidden
-    height : 0
-    padding-bottom : 50%  /*这样宽高比就是2了*/
+    /*overflow : hidden*/
+    /*height : 0*/
+    /*padding-bottom : 50%  /*这样宽高比就是2了*/
     /*background : green*/
+    /*margin-top : .1rem  /*与下面的热销推荐相对应，这里与上方留有一点间距*/
     .icon
       position : relative
       overflow: hidden
@@ -120,7 +121,7 @@ export default {
         right : 0
         bottom : .44rem /*给p标签留出22像素的位置*/
         box-sizing : border-box
-        padding : .1rem /*留有间距，这样图片可以收缩大小！！*/
+        padding : .3rem /*留有间距，这样图片可以收缩大小！！*/
         /*background: blue*/
         .icon-img-content
           display : block /*此元素将显示为块级元素，此元素前后会带有换行符。*/
