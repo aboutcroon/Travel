@@ -2,10 +2,11 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
+      <!--border-bottom让其底下有一像素的边框-->
       <li class="item border-bottom"
-          v-for="item of recommendList"
+          v-for="item of list"
           :key="item.id"
-      > <!--border-bottom让其底下有一像素的边框-->
+      >
         <img class="item-img" :src="item.imgUrl">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -20,6 +21,9 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    list: Array
+  },
   data () {
     return {
       recommendList: [{

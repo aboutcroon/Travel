@@ -1,13 +1,10 @@
 <template>
   <!--外层加一个div包裹住，是为了使之不存在在3g网络中发生抖动的问题，因为在加载之前外部的div就已经把高度给撑开了-->
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
-        <swiper-slide>
-          <img class="swiper-img" src="https://images.unsplash.com/photo-1487119998088-a65531a3ae5c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;w=1000&amp;q=80" alt="欧洲游">
-        </swiper-slide>
-        <swiper-slide>
-          <img class="swiper-img" src="https://images.unsplash.com/photo-1520645521318-f03a712f0e67?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;w=1000&amp;q=80" alt="轮船游">
+        <swiper-slide v-for="item of list" :key="item.id">
+          <img class="swiper-img" :src="item.imgUrl">
         </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -18,12 +15,20 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination', // 使下方显示轮播图的小点
         loop: true
       }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

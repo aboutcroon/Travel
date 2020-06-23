@@ -4,7 +4,7 @@
     <ul>
       <!--border-bottom让其底下有一像素的边框-->
       <li class="item border-bottom"
-          v-for="item of recommendList"
+          v-for="item of list"
           :key="item.id"
       >
         <div class="item-img-wrapper">
@@ -22,6 +22,9 @@
 <script>
 export default {
   name: 'HomeWeekend',
+  props: {
+    list: Array
+  },
   data () {
     return {
       recommendList: [{
@@ -48,7 +51,7 @@ export default {
 <style lang="stylus" scoped>
   @import "~@/assets/styles/mixins.styl"
   .title
-    margin-top : .2rem
+    /*margin-top : .2rem*/  /*把间距去掉，那么最后一栏就可以不用显示那层线了*/
     line-height : .8rem
     background : #eaeaea
     text-indent : .2rem
@@ -56,7 +59,7 @@ export default {
     /*将整体宽高比设成33.9%*/
     overflow : hidden
     height : 0
-    padding-bottom : 33.9%
+    padding-bottom : 37.9%
     .item-img
       width : 100%  /*直接宽为100%就可以填充进去*/
   .item-info
