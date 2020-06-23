@@ -7,10 +7,13 @@
       <span class="iconfont">&#xe63c;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-      {{this.city}}
-      <span class="iconfont arrow-icon">&#xe659;</span>
-    </div>
+    <!--点击跳转到city路径，router-link使得在外层加了一个a标签，并且具有默认颜色-->
+    <router-link to="/city">
+      <div class="header-right">
+        {{this.city}}
+        <span class="iconfont arrow-icon">&#xe659;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -27,7 +30,7 @@ export default {
   @import "~@/assets/styles/variables.styl" /*在css中引用src，符号@前要加~波浪线*/
   .header
     display : flex  /*设置一个flex布局*/
-    line-height : .86rem
+    line-height : $headerHeight
     background : $bgColor
     color : #fff  /*文字内容的颜色*/
     .header-left
@@ -50,6 +53,7 @@ export default {
       width : 1.24rem
       float : right
       text-align : center
+      color : #fff
       .arrow-icon
         /*margin-left : -.4rem*/
         font-size : .32rem

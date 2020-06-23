@@ -24,26 +24,6 @@ export default {
   name: 'HomeWeekend',
   props: {
     list: Array
-  },
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://images.unsplash.com/photo-1516900557549-41557d405adf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80',
-        title: '华侨城夜景',
-        desc: 'a tram beside waiting station during nighttime'
-      }, {
-        id: '0002',
-        imgUrl: 'https://images.unsplash.com/photo-1521428426794-29c957e4d6ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;w=1000&amp;q=80',
-        title: '深圳大学',
-        desc: 'the best place I\'ve been'
-      }, {
-        id: '0003',
-        imgUrl: 'https://images.unsplash.com/photo-1494376735015-a56e57657406?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80',
-        title: '深圳湾人才公园',
-        desc: 'lighted sea bridge above water'
-      }]
-    }
   }
 }
 </script>
