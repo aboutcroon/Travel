@@ -1,12 +1,63 @@
 <template>
-  <div class="search">
-    <input class="search-input" type="text" placeholder="输入城市名或拼音">
+  <div>
+    <div class="search">
+      <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音">
+    </div>
+    <!--v-show使得不输入值时就不显示整个search-content这一标签-->
+    <div class="search-content" ref="search" v-show="keyword">
+      <ul>
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <!--用v-show来使得搜索成功时则不显示这一栏-->
+        <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
-  name: 'CitySearch'
+  name: 'CitySearch',
+  props: {
+    cities: Object
+  },
+  data () {
+    return {
+      keyword: '',
+      list: [],
+      timer: null
+    }
+  },
+  watch: {
+    keyword () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      if (!this.keyword) { // 当搜索结果无匹配时，则清空
+        this.list = []
+        return
+      }
+      this.timer = setTimeout(() => {
+        const result = []
+        for (let i in this.cities) { // i是key值，遍历字母
+          this.cities[i].forEach((value) => { // 遍历某字母中的所有城市
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
+              result.push(value) // 如果再keyword中能找到，则把它加到result数组中
+            }
+          })
+        }
+        this.list = result
+      }, 100)
+    }
+  },
+  mounted () {
+    this.scroll = new BScroll(this.$refs.search)
+  },
+  computed: {
+    hasNoData () {
+      return !this.list.length
+    }
+  }
 }
 </script>
 
@@ -25,4 +76,18 @@ export default {
       text-align : center
       border-radius : .06rem
       color : #666
+  .search-content
+    z-index : 1
+    overflow : hidden
+    position: absolute
+    top : 1.58rem
+    left : 0
+    right : 0
+    bottom : 0
+    background: #eee
+    .search-item
+      line-height : .62rem
+      padding-left : .2rem
+      color : #666
+      background: #fff
 </style>
