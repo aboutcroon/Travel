@@ -6,7 +6,11 @@
     <!--v-show使得不输入值时就不显示整个search-content这一标签-->
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <li class="search-item border-bottom"
+            v-for="item of list"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+        >{{item.name}}</li>
         <!--用v-show来使得搜索成功时则不显示这一栏-->
         <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
       </ul>
@@ -16,6 +20,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import {mapMutations} from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -27,6 +32,16 @@ export default {
       list: [],
       timer: null
     }
+  },
+  methods: {
+    handleCityClick (city) {
+      // 当点击城市的时候，Actions会被dispatch(派发)，然后$store里的Actions就会接收到传过去的city
+      // this.$store.dispatch('changeCity', city) // 调用dispatch方法来使用Actions
+      // this.$store.commit('changeCity', city) // 若不是批量的异步的调用数据，则可以直接调用commit
+      this.changeCity(city)
+      this.$router.push('/') // 跳转到首页
+    },
+    ...mapMutations(['changeCity']) // 将名字叫changeCity的mutations映射到本组件中的名叫changeCity的方法里
   },
   watch: {
     keyword () {

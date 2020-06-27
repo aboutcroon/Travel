@@ -10,7 +10,8 @@
     <!--点击跳转到city路径，router-link使得在外层加了一个a标签，并且具有默认颜色-->
     <router-link to="/city">
       <div class="header-right">
-        {{this.city}}
+        <!--使用vuex接收数据，由于下面computed属性中映射了，所以可以直接写city-->
+        {{this.doubleCity}}
         <span class="iconfont arrow-icon">&#xe659;</span>
       </div>
     </router-link>
@@ -18,10 +19,12 @@
 </template>
 
 <script>
+import {mapState, mapGetters} from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: { // 把vuex里的数据映射到computed里
+    ...mapState(['city']), // 将公有数据city映射到名叫city的计算属性当中
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -50,7 +53,8 @@ export default {
       color : #cacaca
       padding-left : .2rem
     .header-right
-      width : 1.24rem
+      min-width : 1.04rem //让城市变成4个字5个字的时候拥有最小宽度，不会溢出
+      padding : 0 .1rem //上下0，左右0.1rem
       float : right
       text-align : center
       color : #fff
