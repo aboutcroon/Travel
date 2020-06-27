@@ -11,7 +11,7 @@
     <router-link to="/city">
       <div class="header-right">
         <!--使用vuex接收数据，由于下面computed属性中映射了，所以可以直接写city-->
-        {{this.doubleCity}}
+        {{this.city}}
         <span class="iconfont arrow-icon">&#xe659;</span>
       </div>
     </router-link>
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState} from 'vuex'
 export default {
   name: 'HomeHeader',
   computed: { // 把vuex里的数据映射到computed里
-    ...mapState(['city']), // 将公有数据city映射到名叫city的计算属性当中
-    ...mapGetters(['doubleCity'])
+    ...mapState(['city']) // 将公有数据city映射到名叫city的计算属性当中
+    // ...mapGetters(['doubleCity'])
   }
 }
 </script>

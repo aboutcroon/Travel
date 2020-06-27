@@ -13,10 +13,10 @@ export default new Vuex.Store({
   //     ctx.commit('changeCity', city) // commit到mutations
   //   }
   // },
-  mutations,
-  getters: { // getters的作用有点类似于组件中的计算属性的作用，当我们需要根据state里的数据算出一些新的数据的时候，就可以借助getters，来避免数据的冗余
-    doubleCity (state) {
-      return state.city + ' ' + state.city
-    }
-  }
+  mutations
+  // getters: { // getters的作用有点类似于组件中的计算属性的作用，当我们需要根据state里的数据算出一些新的数据的时候，就可以借助getters，来避免数据的冗余
+  //   doubleCity (state) {
+  //     return state.city + ' ' + state.city
+  //   }
+  // }
 })
