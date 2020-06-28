@@ -53,7 +53,7 @@ export default {
       color : #cacaca
       padding-left : .2rem
     .header-right
-      min-width : 1.04rem //让城市变成4个字5个字的时候拥有最小宽度，不会溢出
+      min-width : 1.04rem //让城市变成4个字5个字的时候拥有最小宽度，不会溢出！！！！！！
       padding : 0 .1rem //上下0，左右0.1rem
       float : right
       text-align : center

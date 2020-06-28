@@ -3,9 +3,13 @@
     <div class="title">热销推荐</div>
     <ul>
       <!--border-bottom让其底下有一像素的边框-->
-      <li class="item border-bottom"
+      <!--用router-link替换li标签，但依然让其tag为li，这样就相当于还是一个li标签，并可以绑定to来跳转-->
+      <router-link
+          tag="li"
+          class="item border-bottom"
           v-for="item of list"
           :key="item.id"
+          :to="'/detail/' + item.id"
       >
         <img class="item-img" :src="item.imgUrl">
         <div class="item-info">
@@ -13,7 +17,7 @@
           <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
