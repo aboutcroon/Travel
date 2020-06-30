@@ -5,6 +5,7 @@ import App from './App' // 等价于App.vue
 import router from './router'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'babel-polyfill'
 import store from './store'
 import '../src/assets/styles/reset.css'
 import '../src/assets/styles/border.css'

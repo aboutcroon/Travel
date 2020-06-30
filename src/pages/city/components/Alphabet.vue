@@ -1,11 +1,12 @@
 <template>
   <div>
     <ul class="list">
+      <!--touchstart.prevent是用来阻止touchstart的默认行为-->
       <li class="item"
           v-for="item of letters"
           :key="item"
           @click="handleLetterClick"
-          @touchstart="handleTouchStart"
+          @touchstart.prevent="handleTouchStart"
           @touchmove="handleTouchMove"
           @touchend="handleTouchEnd"
           :ref="item"
