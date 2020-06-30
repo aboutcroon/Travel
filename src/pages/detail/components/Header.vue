@@ -9,7 +9,7 @@
         <div class="iconfont header-fixed-back">&#xe658;</div>
       </router-link>
     </div>
-    <div class="content">ss</div>
+    <div class="content"></div>
   </div>
 </template>
 
@@ -63,6 +63,7 @@ export default {
     .header-abs-back
       color #fff
   .header-fixed
+    z-index : 2
     position : fixed
     top : 0
     left : 0
@@ -82,6 +83,4 @@ export default {
       text-align : center
       font-size : .4rem
       color : #fff
-  .content
-    height : 50rem
 </style>
