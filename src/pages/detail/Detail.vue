@@ -28,7 +28,7 @@ export default {
     return {
       sightName: '',
       bannerImg: '',
-      galleryImgs: '',
+      galleryImgs: [],
       list: []
     }
   },

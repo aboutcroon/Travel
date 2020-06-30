@@ -10,16 +10,19 @@
         </div>
       </div>
     </div>
-    <common-gallery
-      :imgs="bannerImgs"
-      v-show="showGallery"
-      @close="handleGalleryClose"
-    ></common-gallery>
+    <fade-animation> <!--这样子common-gallery这个组件就会作为一个插槽的形式插入fade-animation组件中-->
+      <common-gallery
+        :imgs="bannerImgs"
+        v-show="showGallery"
+        @close="handleGalleryClose"
+      ></common-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallery from '../../../common/gallery/Gallery'
+import FadeAnimation from '../../../common/fade/FadeAnimation'
 export default {
   name: 'DetailBanner',
   props: {
@@ -28,7 +31,8 @@ export default {
     bannerImgs: Array
   },
   components: {
-    CommonGallery
+    CommonGallery,
+    FadeAnimation
   },
   data () {
     return {
